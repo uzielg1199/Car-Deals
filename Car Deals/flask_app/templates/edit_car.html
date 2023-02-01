@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dealz</title>
+</head>
+<body>
+    <nav>
+        <div>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+    <form action="/update/car" method="post">
+        <h2>Edit {{edit.model}}</h2>
+        {% with messages = get_flashed_messages(category_filter=['car']) %}
+            {% if messages %}
+            <div>
+                <strong>Flash AHHHHHHH!!!!</strong>
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+        
+        <div>
+            <input type="hidden" name="id" value={{edit.id}}>
+            <div>
+                <div>
+                    <label>Price:</label>
+                    <input type="text" name="price" value="{{edit.price}}">
+                </div>
+                <div>
+                    <label>Model:</label>
+                    <input type="text" name="model" value="{{edit.model}}">
+                </div>
+                <div>
+                    <label>Make:</label>
+                    <input type="text" name="make" value="{{edit.make}}">
+                </div>
+                <div>
+                    <label>Year:</label>
+                    <input type="text" name="year" value="{{edit.year}}">
+                </div>
+                <div>
+                    <label>Description:</label>
+                    <textarea name="description"  cols="30" rows="5">{{edit.description}}</textarea>
+                </div>
+                <button>Update</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

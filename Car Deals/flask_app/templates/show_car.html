@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dealz</title>
+</head>
+<body>
+    <nav>
+        <div>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+    <div>
+        <div>
+            <h2>{{cars.price}}</h2>
+            <p>Model: {{cars.model}}</p>
+            <p>Make: {{cars.make}}</p>
+            <p>Year: {{cars.year}}</p>
+            <p>Description: {{cars.description}}</p>
+        </div>
+    </div>
+    <form action="/destroy/car/{{cars.id}}">
+        <input type="submit" value="Purchase">
+    </form>
+</body>
+</html>
